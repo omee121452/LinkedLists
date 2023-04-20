@@ -16,7 +16,23 @@ class linkedlist:
         self.tail = Node
 
     def __str__(self):
-        return
+        CurrentPointer = self.head
+        FullLinkedList = ""
+        while CurrentPointer is not None:
+            FullLinkedList += str(CurrentPointer)
+            FullLinkedList += " "
+            CurrentPointer = CurrentPointer.next
+        return FullLinkedList
+
+    def printNodeByindex(self, index):
+        CurrentPointer = self.head
+        Counter = 0
+        while Counter < index:
+            if CurrentPointer == None:
+                return "Please enter a valid index"
+            CurrentPointer = CurrentPointer.next
+            Counter+=1
+        return str(CurrentPointer)
 
 
 LL1 = linkedlist(5)
@@ -25,5 +41,10 @@ print(LL1.head.next)
 LL1.insert(9)
 print(LL1.tail.previous)
 print(LL1.tail)
+print(LL1)
+LL1.insert(50)
+print(LL1)
+print(LL1.printNodeByindex(2))
+print(LL1.printNodeByindex(4))
 # when we call print on the head it calls to the print function in the node class in node.py,
 # but if we called print on Ll1 our linked list it would call on the linkedList class in this file
